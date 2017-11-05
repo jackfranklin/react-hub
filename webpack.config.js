@@ -32,6 +32,10 @@ module.exports = {
   },
   devServer: {},
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './index-template.html',
+      chunks: [],
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),

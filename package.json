@@ -9,9 +9,7 @@
     "lint": "eslint src --ext .js --ext .jsx",
     "test-dev": "jest --watch",
     "test": "jest",
-    "build-dev": "webpack-dev-server",
-    "build-debug": "DEBUG=true webpack",
-    "build-prod": "NODE_ENV=production webpack"
+    "start": "webpack-dev-server --open"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
