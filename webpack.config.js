@@ -1,10 +1,13 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const fs = require('fs')
 
-const partsTotal = 1
+const partDirectories = fs
+  .readdirSync(__dirname)
+  .filter(f => f.indexOf('part') > -1)
 
-const parts = Array.from({ length: partsTotal }).map(
+const parts = Array.from({ length: partDirectories.length }).map(
   (_, index) => `part${index + 1}`
 )
 
@@ -30,7 +33,9 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
   },
-  devServer: {},
+  devServer: {
+    overlay: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index-template.html',

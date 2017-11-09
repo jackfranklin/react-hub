@@ -1,5 +1,5 @@
 .content {
-  width: 960px;
+  width: 90%;
   margin: 0 auto;
   padding: 30px;
   font-family: Helvetica, Arial, serif;
@@ -31,6 +31,8 @@ h1 {
   list-style-image: url('http://img-cache.cdn.gaiaonline.com/76bd5c99d8f2236e9d3672510e933fdf/http://i278.photobucket.com/albums/kk81/d3m3nt3dpr3p/Tiny-Star-Icon.png');
   list-style-position: inside;
   padding: 0;
+  width: 40%;
+  min-width: 310px;
 }
 
 .results li {
