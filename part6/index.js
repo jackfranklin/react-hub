@@ -34,17 +34,19 @@ class App extends React.Component {
         </header>
         {this.state.isLoading && <div className="loader">Loading...</div>}
         <ul className="results">
-          {this.state.repositories.map(repository => (
-            <li key={repository.id}>
-              <Repository repository={repository} />
-              <button
-                className="removeBtn"
-                onClick={() => this.hideRepository(repository.id)}
-              >
-                X
-              </button>
-            </li>
-          ))}
+          {this.state.repositories
+            .filter(r => this.state.removedIds.indexOf(r.id) === -1)
+            .map(repository => (
+              <li key={repository.id}>
+                <Repository repository={repository} />
+                <button
+                  className="removeBtn"
+                  onClick={() => this.hideRepository(repository.id)}
+                >
+                  X
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
     )
