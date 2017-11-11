@@ -28,16 +28,22 @@ h1 {
 }
 
 .results {
-  list-style-image: url('http://img-cache.cdn.gaiaonline.com/76bd5c99d8f2236e9d3672510e933fdf/http://i278.photobucket.com/albums/kk81/d3m3nt3dpr3p/Tiny-Star-Icon.png');
-  list-style-position: inside;
+  list-style: none;
   padding: 0;
-  width: 40%;
-  min-width: 310px;
 }
 
 .results li {
+  display: flex;
+  background-image: url('http://img-cache.cdn.gaiaonline.com/76bd5c99d8f2236e9d3672510e933fdf/http://i278.photobucket.com/albums/kk81/d3m3nt3dpr3p/Tiny-Star-Icon.png');
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+  padding-left: 20px;
   font-size: 18px;
   margin-bottom: 16px;
+}
+
+.results .removeBtn {
+  margin-left: 10px;
 }
 
 .star-count {

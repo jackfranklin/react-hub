@@ -13,11 +13,20 @@ const repositories = [
     name: 'ReactTraining/react-router',
     stars: 25000,
   },
+  {
+    id: 3,
+    name: 'facebook/react',
+    stars: 80000,
+  },
 ]
 
 class App extends React.Component {
   state = {
     removedIds: [],
+  }
+
+  hideRepository = id => {
+    // exercise: when an ID is removed, update the state and add it to the list
   }
 
   render() {
@@ -28,9 +37,23 @@ class App extends React.Component {
           <span className="tagline">GitHub, for React things</span>
         </header>
         <ul className="results">
-          {repositories.map(repository => (
-            <Repository key={repository.id} repository={repository} />
-          ))}
+          {repositories
+            .filter(
+              // exercise: filter this such that only repos that have not been removed
+              // by the user are shown
+              repository => true
+            )
+            .map(repository => (
+              <li key={repository.id}>
+                <Repository repository={repository} />
+                <button
+                  className="removeBtn"
+                  onClick={() => this.hideRepository(repository.id)}
+                >
+                  X
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
     )
