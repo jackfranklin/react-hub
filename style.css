@@ -104,3 +104,8 @@ input:focus {
   padding: 20px;
   box-sizing: border-box;
 }
+
+.loader {
+  padding: 30px;
+  font-size: 40px;
+}
