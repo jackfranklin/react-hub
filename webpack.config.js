@@ -35,6 +35,8 @@ module.exports = {
   },
   devServer: {
     overlay: true,
+    historyApiFallback: true,
+    noInfo: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
