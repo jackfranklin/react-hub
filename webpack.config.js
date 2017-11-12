@@ -35,8 +35,10 @@ module.exports = {
   },
   devServer: {
     overlay: true,
-    historyApiFallback: true,
-    noInfo: true,
+    stats: 'minimal',
+    historyApiFallback: {
+      rewrites: [{ from: /part9\/./, to: '/part9/index.html' }],
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
