@@ -30,15 +30,21 @@ h1 {
 .results {
   list-style: none;
   padding: 0;
+  width: 45%;
+  float: left;
+}
+
+.main-content {
+  width: 50%;
+  margin-left: auto;
+  float: right;
+  padding: 20px 5px 100px 20px;
+  border-left: 1px solid #ccc;
 }
 
 .results li {
   display: flex;
-  background-image: url('http://img-cache.cdn.gaiaonline.com/76bd5c99d8f2236e9d3672510e933fdf/http://i278.photobucket.com/albums/kk81/d3m3nt3dpr3p/Tiny-Star-Icon.png');
-  background-repeat: no-repeat;
-  background-position: 0px 1px;
-  padding-left: 20px;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 16px;
 }
 
@@ -48,7 +54,12 @@ h1 {
 
 .star-count {
   font-weight: bold;
-  margin-right: 16px;
+  margin-right: 11px;
+  background-image: url('http://img-cache.cdn.gaiaonline.com/76bd5c99d8f2236e9d3672510e933fdf/http://i278.photobucket.com/albums/kk81/d3m3nt3dpr3p/Tiny-Star-Icon.png');
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+  display: inline-block;
+  padding-left: 20px;
 }
 
 a {
