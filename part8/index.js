@@ -13,6 +13,8 @@ class App extends React.Component {
     isLoading: true,
     removedIds: [],
     searchQuery: 'react',
+    // exercise: add some state here which tracks the "active" repository
+    // probably by its numeric ID
   }
 
   fetchSearch() {
@@ -40,10 +42,12 @@ class App extends React.Component {
   }
 
   searchGithub = event => {
-    // this stops the form submitting and refreshing the browser
     event.preventDefault()
-
     this.fetchSearch()
+  }
+
+  onRepositoryClick = id => {
+    // EXERCISE: set the active repository here
   }
 
   render() {
@@ -71,7 +75,13 @@ class App extends React.Component {
             .filter(r => this.state.removedIds.indexOf(r.id) === -1)
             .map(repository => (
               <li key={repository.id}>
-                <Repository repository={repository} />
+                {/* EXERCISE: you'll need to call the given prop in <Repository />
+                   * so that this component has the state updated
+                   */}
+                <Repository
+                  repository={repository}
+                  onRepositoryClick={this.onRepositoryClick}
+                />
                 <button
                   className="removeBtn"
                   onClick={() => this.hideRepository(repository.id)}
@@ -81,6 +91,12 @@ class App extends React.Component {
               </li>
             ))}
         </ul>
+        <div className="main-content">
+          <h3>Active repository</h3>
+          {/* EXERCISE: show the active repository here
+             * hint: you should be able to reuse the <Repository /> component
+             */}
+        </div>
       </div>
     )
   }

@@ -8,7 +8,7 @@ Part 5: Events and basic state
 # Async data
 Part 6: fetching from github into state
 Part 7: inputs and form submits
-Part 8: Viewing a single repository
+Part 8: Viewing a single repository - parent and child communication
 
 # React Router
 Part 9: Routing at specific URLs
