@@ -23,3 +23,7 @@ Part 14: hiding repositories via Redux actions
 Part 15: loading async data into Redux
 
 # Testing with Jest
+
+Part 16: testing basic output
+Part 17: testing user interaction
+Part 18: testing async http requests
