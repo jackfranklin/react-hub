@@ -37,7 +37,10 @@ module.exports = {
     overlay: true,
     stats: 'minimal',
     historyApiFallback: {
-      rewrites: [{ from: /part9\/./, to: '/part9/index.html' }],
+      rewrites: [
+        { from: /part9\/./, to: '/part9/index.html' },
+        { from: /part10\/./, to: '/part10/index.html' },
+      ],
     },
   },
   plugins: [

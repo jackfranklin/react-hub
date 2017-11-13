@@ -12,8 +12,8 @@ Part 8: Viewing a single repository - parent and child communication
 
 # React Router
 Part 9: Routing at specific URLs
-Part 10: Updating the URL with the search query on submit
-Part 11: `/repo/:id` route for viewing a repository
+Part 10: `/repo/:id` route for viewing a repository
+Part 11: Updating the URL with the search query on submit
 
 # Redux
 
