@@ -13,7 +13,6 @@ export default class App extends React.Component {
     isLoading: true,
     removedIds: [],
     searchQuery: 'react',
-    activeRepository: -1,
   }
 
   fetchSearch() {
@@ -43,10 +42,6 @@ export default class App extends React.Component {
   searchGithub = event => {
     event.preventDefault()
     this.fetchSearch()
-  }
-
-  onRepositoryClick = id => {
-    this.setState(() => ({ activeRepository: id }))
   }
 
   render() {

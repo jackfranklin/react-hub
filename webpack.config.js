@@ -40,6 +40,7 @@ module.exports = {
       rewrites: [
         { from: /part9\/./, to: '/part9/index.html' },
         { from: /part10\/./, to: '/part10/index.html' },
+        { from: /part11\/./, to: '/part11/index.html' },
       ],
     },
   },
