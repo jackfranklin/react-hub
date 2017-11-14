@@ -18,9 +18,10 @@ Part 11: Updating the URL with the search query on submit
 # Redux
 
 Part 12: creating a Redux store and reducer
-Part 13: connecting our components to Redux
-Part 14: hiding repositories via Redux actions
-Part 15: loading async data into Redux
+Part 13: creating a React front for our counter redux store
+Part 14: connecting our components to Redux
+Part 15: hiding repositories via Redux actions
+Part 16: loading async data into Redux
 
 # Testing with Jest
 
