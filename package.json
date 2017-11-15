@@ -9,7 +9,7 @@
     "lint": "eslint src --ext .js --ext .jsx",
     "test-dev": "jest --watch",
     "test": "jest",
-    "start": "webpack-dev-server --open --progress",
+    "start": "node cli/run",
     "part16-test": "jest --watch part16"
   },
   "devDependencies": {
@@ -45,7 +45,9 @@
     "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
+    "chalk": "^2.3.0",
     "react": "^16.0.0",
+    "react-dev-utils": "^4.2.1",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
