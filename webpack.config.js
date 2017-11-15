@@ -27,7 +27,11 @@ const htmlFiles = parts.map(
 )
 
 module.exports = {
-  entry: partsEntryPoints,
+  cache: true,
+  devtool: 'cheap-module-eval-source-map',
+  entry: {
+    ...partsEntryPoints,
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'build'),
@@ -70,6 +74,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
       },
     ],
   },
