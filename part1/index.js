@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div className="content">
       <header>
-        ReactHub!
+        <h1>ReactHub!</h1>
         {/* EXERCISES!
         * 1. Give this `span` some text, such as: "GitHub, for React things"
         * 2. Give the `span` a class of "tagline"
