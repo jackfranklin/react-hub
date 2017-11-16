@@ -8,4 +8,4 @@ const App = () => (
   </p>
 )
 
-render(<App />, document.getElementById('react-root'))
+export default () => render(<App />, document.getElementById('react-root'))

@@ -6,9 +6,10 @@ import store from './store'
 import { Provider } from 'react-redux'
 import App from './app'
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('react-root')
-)
+export default () =>
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('react-root')
+  )

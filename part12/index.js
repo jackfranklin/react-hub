@@ -31,9 +31,11 @@ const runReduxStore = () => {
   console.log(store.getState())
 }
 
-render(
-  <p>Look in the console for this one!</p>,
-  document.getElementById('react-root')
-)
+export default () => {
+  render(
+    <p>Look in the console for this one!</p>,
+    document.getElementById('react-root')
+  )
 
-runReduxStore()
+  runReduxStore()
+}

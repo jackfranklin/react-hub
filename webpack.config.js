@@ -1,30 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
-const fs = require('fs')
-
-const partDirectories = fs
-  .readdirSync(__dirname)
-  .filter(f => f.indexOf('part') > -1)
-
-const parts = Array.from({ length: partDirectories.length }).map(
-  (_, index) => `part${index + 1}`
-)
-
-const partsEntryPoints = parts.reduce((entries, part) => {
-  entries[part] = path.resolve(part, 'index.js')
-  return entries
-}, {})
-
-const htmlFiles = parts.map(
-  part =>
-    new HtmlWebpackPlugin({
-      title: `ReactHub: ${part}`,
-      filename: `${part}/index.html`,
-      chunks: ['vendor', part],
-      template: './template.html',
-    })
-)
 
 module.exports = {
   cache: true,
@@ -37,9 +13,9 @@ module.exports = {
       'redux',
       'react-router-dom',
       'whatwg-fetch',
-      './style.js',
+      './style.css',
     ],
-    ...partsEntryPoints,
+    main: './index.js',
   },
   output: {
     filename: '[name].js',
@@ -49,13 +25,7 @@ module.exports = {
   devServer: {
     overlay: true,
     stats: 'minimal',
-    historyApiFallback: {
-      rewrites: [
-        { from: /part9\/./, to: '/part9/index.html' },
-        { from: /part10\/./, to: '/part10/index.html' },
-        { from: /part11\/./, to: '/part11/index.html' },
-      ],
-    },
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -64,16 +34,13 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './index-template.html',
-      chunks: [],
     }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
       },
     }),
-  ]
-    .concat(htmlFiles)
-    .filter(Boolean),
+  ].filter(Boolean),
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
   },

@@ -33,4 +33,4 @@ const App = () => {
   )
 }
 
-render(<App />, document.getElementById('react-root'))
+export default () => render(<App />, document.getElementById('react-root'))
