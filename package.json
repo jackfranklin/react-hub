@@ -10,7 +10,8 @@
     "test-dev": "jest --watch",
     "test": "jest",
     "start": "webpack-dev-server --open --progress",
-    "part16-test": "jest --watch part16"
+    "part16-test": "jest --watch part16",
+    "part17-test": "jest --watch part17"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
