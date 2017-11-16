@@ -12,7 +12,7 @@ const parts = Array.from({ length: partDirectories.length }).map(
 )
 
 const partsEntryPoints = parts.reduce((entries, part) => {
-  entries[part] = ['whatwg-fetch', './style.js', path.resolve(part, 'index.js')]
+  entries[part] = path.resolve(part, 'index.js')
   return entries
 }, {})
 
@@ -21,7 +21,7 @@ const htmlFiles = parts.map(
     new HtmlWebpackPlugin({
       title: `ReactHub: ${part}`,
       filename: `${part}/index.html`,
-      chunks: [part],
+      chunks: ['vendor', part],
       template: './template.html',
     })
 )
@@ -30,6 +30,15 @@ module.exports = {
   cache: true,
   devtool: 'cheap-module-eval-source-map',
   entry: {
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'redux',
+      'react-router-dom',
+      'whatwg-fetch',
+      './style.js',
+    ],
     ...partsEntryPoints,
   },
   output: {
@@ -49,6 +58,10 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
+    }),
     new HtmlWebpackPlugin({
       template: './index-template.html',
       chunks: [],
