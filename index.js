@@ -1,47 +1,42 @@
-import part1 from './part1'
-import part2 from './part2'
-import part3 from './part3'
-import part4 from './part4'
-import part5 from './part5'
-import part6 from './part6'
-import part7 from './part7'
-import part8 from './part8'
-import part9 from './part9'
-import part10 from './part10'
-import part11 from './part11'
-import part12 from './part12'
-import part13 from './part13'
-import part14 from './part14'
-import part15 from './part15'
-import part16 from './part16'
-
-const parts = {
-  part1,
-  part2,
-  part3,
-  part4,
-  part5,
-  part6,
-  part7,
-  part8,
-  part9,
-  part10,
-  part11,
-  part12,
-  part13,
-  part14,
-  part15,
-  part16,
-}
-
 const regex = /part([0-9]{1,2})\//g
 const match = regex.exec(window.location.pathname)
 
 if (match) {
   const partKey = 'part' + match[1]
-  const partFn = parts[partKey]
-  if (partFn) {
-    partFn()
+  // this is very manual but it helps webpack know exactly
+  // which files could end up being included
+  if (partKey === 'part1') {
+    System.import('./part1')
+  } else if (partKey === 'part2') {
+    System.import('./part2')
+  } else if (partKey === 'part3') {
+    System.import('./part3')
+  } else if (partKey === 'part4') {
+    System.import('./part4')
+  } else if (partKey === 'part5') {
+    System.import('./part5')
+  } else if (partKey === 'part6') {
+    System.import('./part6')
+  } else if (partKey === 'part7') {
+    System.import('./part7')
+  } else if (partKey === 'part8') {
+    System.import('./part8')
+  } else if (partKey === 'part9') {
+    System.import('./part9')
+  } else if (partKey === 'part10') {
+    System.import('./part10')
+  } else if (partKey === 'part11') {
+    System.import('./part11')
+  } else if (partKey === 'part12') {
+    System.import('./part12')
+  } else if (partKey === 'part13') {
+    System.import('./part13')
+  } else if (partKey === 'part14') {
+    System.import('./part14')
+  } else if (partKey === 'part15') {
+    System.import('./part15')
+  } else if (partKey === 'part16') {
+    System.import('./part16')
   } else {
     document.body.innerHTML =
       '<p>No part found. Head to /partX where X is the number!</p>'

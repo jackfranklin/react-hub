@@ -11,5 +11,5 @@ const AppWithRouter = () => (
   </BrowserRouter>
 )
 
-export default () =>
+ 
   render(<AppWithRouter />, document.getElementById('react-root'))

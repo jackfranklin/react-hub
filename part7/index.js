@@ -84,4 +84,4 @@ class App extends React.Component {
   }
 }
 
-export default () => render(<App />, document.getElementById('react-root'))
+  render(<App />, document.getElementById('react-root'))
