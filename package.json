@@ -11,7 +11,8 @@
     "test": "jest",
     "start": "webpack-dev-server --open --progress",
     "part16-test": "jest --watch part16",
-    "part17-test": "jest --watch part17"
+    "part17-test": "jest --watch part17",
+    "part18-test": "jest --watch part18"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -35,6 +36,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
+    "fetch-mock": "^5.13.1",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^21.2.1",
     "prettier": "^1.7.4",

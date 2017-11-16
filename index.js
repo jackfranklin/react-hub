@@ -37,6 +37,10 @@ if (match) {
     System.import('./part15')
   } else if (partKey === 'part16') {
     System.import('./part16')
+  } else if (partKey === 'part17') {
+    System.import('./part17')
+  } else if (partKey === 'part18') {
+    System.import('./part18')
   } else {
     document.body.innerHTML =
       '<p>No part found. Head to /partX where X is the number!</p>'
