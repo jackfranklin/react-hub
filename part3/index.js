@@ -30,4 +30,4 @@ const App = () => {
   )
 }
 
-  render(<App />, document.getElementById('react-root'))
+render(<App />, document.getElementById('react-root'))

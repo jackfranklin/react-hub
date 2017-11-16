@@ -8,4 +8,4 @@ const App = () => (
   </p>
 )
 
-  render(<App />, document.getElementById('react-root'))
+render(<App />, document.getElementById('react-root'))
