@@ -1,11 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import Repository from './repository'
-import fetch from 'so-fetch-js'
-
-const getSearchUrl = query => `
-  http://github-proxy-api.herokuapp.com/search/repositories?q=${query}+language:javascript+fork:false+stars:>=1000
-`
+import { makeRequest } from './api'
 
 class App extends React.Component {
   state = {
@@ -15,13 +11,17 @@ class App extends React.Component {
     searchQuery: 'react',
   }
 
-  componentDidMount() {
-    fetch(getSearchUrl(this.state.searchQuery)).then(result => {
-      this.setState(prevState => ({
+  makeGithubRequest() {
+    makeRequest(this.state.searchQuery).then(({ repositories }) => {
+      this.setState({
         isLoading: false,
-        repositories: result.data.items,
-      }))
+        repositories: repositories,
+      })
     })
+  }
+
+  componentDidMount() {
+    this.makeGithubRequest()
   }
 
   hideRepository = id =>
@@ -30,18 +30,14 @@ class App extends React.Component {
     }))
 
   updateSearchQuery = event => {
-    // EXERCISE: update this.state.searchQuery with the new query
-    // (the latest input value is accessed via event.target.value)
+    this.setState({
+      searchQuery: event.target.value,
+    })
   }
 
   searchGithub = event => {
-    // this stops the form submitting and refreshing the browser
     event.preventDefault()
-
-    // EXERCISE:
-    // search GitHub based on the value of this.state.searchQuery
-    // hint: can you reuse the code in componentDidMount if you create another function
-    // that you could call?
+    this.makeGithubRequest()
   }
 
   render() {

@@ -8,29 +8,54 @@ class App extends Component {
     count: PropTypes.number.isRequired,
   }
 
+  state = {
+    decrementByAmount: 5,
+  }
+
   // EXERCISE: make decrement and increment work by dispatching
   // an action to the store
   // remember: a connected component is given this.props.dispatch
   decrement = () => {
-    // you need to make the reducer deal with decrement - it doesn't know
-    // about it right now!
+    this.props.dispatch({ type: 'DECREMENT' })
   }
 
-  increment = () => {}
+  increment = () => {
+    this.props.dispatch({ type: 'INCREMENT' })
+  }
+
+  onDecrementByAmountChange = event => {
+    this.setState({ decrementByAmount: parseInt(event.target.value, 10) })
+  }
+
+  decrementBy = () =>
+    this.props.dispatch({
+      type: 'DECREMENT_BY',
+      amount: this.state.decrementByAmount,
+    })
 
   render() {
     return (
-      <div className="counter">
-        <span className="count">{this.props.count}</span>
-        <button onClick={this.decrement}>-</button>
-        <button onClick={this.increment}>+</button>
+      <div>
+        <div className="counter">
+          <span className="count">{this.props.count}</span>
+          <button onClick={this.decrement}>-</button>
+          <button onClick={this.increment}>+</button>
+          <button onClick={this.decrementBy}>---</button>
+        </div>
+        <input
+          type="number"
+          value={this.state.decrementByAmount}
+          onChange={this.onDecrementByAmountChange}
+        />
       </div>
     )
   }
 }
 
-export default App
+const mapReduxStateToProps = state => ({
+  count: state.count,
+})
 
-// exercise: create a ConnectedApp that connects the App to the store
-// and provides access to the count property on the state
-// and export that component instead
+const ConnectedApp = connect(mapReduxStateToProps)(App)
+
+export default ConnectedApp

@@ -4,20 +4,28 @@ import Repository from './repository'
 import fetch from 'so-fetch-js'
 
 const SEARCH_URL = `
-  http://github-proxy-api.herokuapp.com/search/repositories?q=react+language:javascript+fork:false+stars:>=1000
+  http://github-pr-api.herokuapp.com/search/repositories?q=react+language:javascript+fork:false+stars:>=1000
 `
 
 class App extends React.Component {
   state = {
     repositories: [],
     isLoading: true,
+    isError: false,
     removedIds: [],
   }
 
   componentDidMount() {
-    // exercise: fetch the JSON from SEARCH_URL
-    // and setState when you get the result back
-    // result.data.items will contain the repositories
+    fetch(SEARCH_URL)
+      .then(result => {
+        this.setState({
+          isLoading: false,
+          repositories: result.data.items,
+        })
+      })
+      .catch(() => {
+        this.setState({ isLoading: false, isError: true })
+      })
   }
 
   hideRepository = id =>
@@ -33,6 +41,7 @@ class App extends React.Component {
           <span className="tagline">GitHub, for React things</span>
         </header>
         {this.state.isLoading && <div className="loader">Loading...</div>}
+        {this.state.isError && <div className="loader">ERROR!...</div>}
         <ul className="results">
           {this.state.repositories
             .filter(r => this.state.removedIds.indexOf(r.id) === -1)

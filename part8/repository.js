@@ -1,16 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// EXERCISE: convert this component to be a class component
-// and bind an onClick event to the <a /> that calls props.onRepositoryClick
-const Repository = props => (
-  <div>
-    <span className="star-count">{props.repository.stargazers_count}</span>
-    <a href={`https://github.com/${props.repository.name}`}>
-      {props.repository.name}
-    </a>
-  </div>
-)
+class Repository extends React.Component {
+  onRepositoryClick = event => {
+    event.preventDefault()
+    this.props.onRepositoryClick(this.props.repository.id)
+  }
+
+  render() {
+    return (
+      <div>
+        <span className="star-count">
+          {this.props.repository.stargazers_count}
+        </span>
+        <a href="#" onClick={this.onRepositoryClick}>
+          {this.props.repository.name}
+        </a>
+      </div>
+    )
+  }
+}
 
 Repository.propTypes = {
   repository: PropTypes.shape({

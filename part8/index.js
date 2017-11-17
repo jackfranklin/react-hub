@@ -15,6 +15,7 @@ class App extends React.Component {
     searchQuery: 'react',
     // exercise: add some state here which tracks the "active" repository
     // probably by its numeric ID
+    activeRepository: -1,
   }
 
   fetchSearch() {
@@ -48,9 +49,13 @@ class App extends React.Component {
 
   onRepositoryClick = id => {
     // EXERCISE: set the active repository here
+    this.setState({ activeRepository: id })
   }
 
   render() {
+    const activeRepo = this.state.repositories.find(
+      repo => repo.id === this.state.activeRepository
+    )
     return (
       <div className="content">
         <header>
@@ -96,6 +101,9 @@ class App extends React.Component {
           {/* EXERCISE: show the active repository here
              * hint: you should be able to reuse the <Repository /> component
              */}
+          {activeRepo && (
+            <Repository repository={activeRepo} onRepositoryClick={() => {}} />
+          )}
         </div>
       </div>
     )

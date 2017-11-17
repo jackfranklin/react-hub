@@ -1,6 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+const Repository = props => (
+  <li>
+    <span className="star-count">{props.repository.stars}</span>
+    <a href={`https://github.com/${props.repository.name}`}>
+      {props.repository.name}
+    </a>
+  </li>
+)
+
 const App = () => {
   const sampleRepository = {
     id: 1,
@@ -19,12 +28,7 @@ const App = () => {
           * that takes sampleRepository as a prop
           * (don't worry about putting it in another file yet, just define it above)
           */}
-        <li>
-          <span className="star-count">{sampleRepository.stars}</span>
-          <a href={`https://github.com/${sampleRepository.name}`}>
-            {sampleRepository.name}
-          </a>
-        </li>
+        <Repository repository={sampleRepository} />
       </ul>
     </div>
   )

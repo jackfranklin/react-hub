@@ -26,34 +26,37 @@ class App extends React.Component {
   }
 
   hideRepository = id => {
-    // exercise: when an ID is removed, update the state and add it to the list
+    this.setState(previousState => ({
+      removedIds: [...previousState.removedIds, id],
+    }))
   }
 
+  repositoryIsVisible = repo => this.state.removedIds.indexOf(repo.id) === -1
+
+  reset = () => this.setState({ removedIds: [] })
+
   render() {
+    const visibleRepos = repositories.filter(this.repositoryIsVisible)
+
     return (
       <div className="content">
         <header>
           <h1>ReactHub!</h1>
           <span className="tagline">GitHub, for React things</span>
         </header>
+        <button onClick={this.reset}>Reset</button>
         <ul className="results">
-          {repositories
-            .filter(
-              // exercise: filter this such that only repos that have not been removed
-              // by the user are shown
-              repository => true
-            )
-            .map(repository => (
-              <li key={repository.id}>
-                <Repository repository={repository} />
-                <button
-                  className="removeBtn"
-                  onClick={() => this.hideRepository(repository.id)}
-                >
-                  X
-                </button>
-              </li>
-            ))}
+          {visibleRepos.map(repository => (
+            <li key={repository.id}>
+              <Repository repository={repository} />
+              <button
+                className="removeBtn"
+                onClick={() => this.hideRepository(repository.id)}
+              >
+                X
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     )

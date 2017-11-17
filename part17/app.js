@@ -30,6 +30,9 @@ export default class App extends React.Component {
       removedIds: [...prevState.removedIds, id],
     }))
 
+  reset = () => {
+    this.setState({ removedIds: [] })
+  }
   render() {
     return (
       <div className="content">
@@ -37,6 +40,9 @@ export default class App extends React.Component {
           <h1>ReactHub!</h1>
           <span className="tagline">GitHub, for React things</span>
         </header>
+        <button className="reset" onClick={this.reset}>
+          Reset
+        </button>
         {this.state.isLoading && <div className="loader">Loading...</div>}
         <ul className="results">
           {this.state.repositories

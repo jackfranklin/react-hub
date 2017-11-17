@@ -15,8 +15,10 @@ const Repository = props => (
  * hint: you'll probably want to use PropTypes.shape(...)
  */
 Repository.propTypes = {
-  // fill this in
-  // repository: ...
+  repository: PropTypes.shape({
+    stars: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default Repository

@@ -25,8 +25,11 @@ const App = () => {
       <ul className="results">
         {/* EXERCISE: go into repository.js and add prop types */}
         {/* EXERCISE: use the <Repository /> component we created */}
-        {repositories.map(repository => (
-          <li key={repository.id}>Repository {repository.id}</li>
+        {repositories.map(currentRepository => (
+          <Repository
+            key={currentRepository.id}
+            repository={currentRepository}
+          />
         ))}
       </ul>
     </div>

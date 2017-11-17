@@ -18,8 +18,11 @@ const App = () => {
         <li>
           <span className="star-count">
             {/* EXERCISE: swap out this 0 for the actual star count */}
-            0
+            {sampleRepository.stars}
           </span>
+          <a href={`https://github.com/${sampleRepository.name}`}>
+            {sampleRepository.name}
+          </a>
           {/* EXERCISE: add an anchor here that links to the repository on GitHub
             * you'll need to prepend https://github.com/ to the repository name
             */}
