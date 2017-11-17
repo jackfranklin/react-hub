@@ -1,3 +1,3 @@
-# js-starter-kit
+# React Hub
 
-This is my boilerplate that I copy into a new JavaScript, React based, front end project.
+A ReactJS crash course in a day.
